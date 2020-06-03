@@ -15,29 +15,24 @@ class App extends React.Component {
         userData: res.data 
       });
     });
-  }
 
-  state = {
-    cards: [],
-    cardsText: "karminer60"
-  };
-
-  handleChanges = e => {
-    this.setState({
-      cardsText: e.target.value
-    });
-  };
-
-  fetchCard = () => {
-    
-   
     axios.get(`https://api.github.com/users/karminer60/followers`).then(res => {
       // res.data.message
       this.setState({
-        cards: res.data
+        followers: res.data
       });
     });
+  }
+
+  state = {
+    userData: null,
+    cardsText: "karminer60",
+    followers : []
   };
+
+ 
+
+ 
 
  
 
@@ -45,16 +40,14 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Hello</h1>
-        <input
-          type="text"
-          value={this.state.cardsText}
-          onChange={this.handleChanges}
-        />
        
-        <button onClick={this.fetchCard}>Fetch Card</button>
-        <div className="cards">
-          {this.state.cards.followers.map(follower => (
-            <img width="200" src={follower} key={follower} alt={follower} />
+      
+        <div className = 'user'>
+        {this.state.userData && <Display userData={this.state.userData} key={this.state.userData.login} />}
+        </div>
+        <div className="followers">
+          {this.state.followers.map(follower => (
+            <Display userData={follower} key={follower.login}   />
           ))}
         </div>
         
