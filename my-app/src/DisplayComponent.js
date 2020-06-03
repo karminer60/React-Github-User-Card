@@ -8,6 +8,7 @@ class Display extends React.Component{
         return(
     < div >
         <img src={userData.avatar_url} alt='pic'></img>
+        <p >Username: {userData.login} </p>
        
 
     </div>
