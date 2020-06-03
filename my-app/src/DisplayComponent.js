@@ -6,7 +6,7 @@ class Display extends React.Component{
         
         let userData = this.props.userData;
         return(
-    < div >
+    < div className="content">
         <img src={userData.avatar_url} alt='pic'></img>
         <p >Username: {userData.login} </p>
        
