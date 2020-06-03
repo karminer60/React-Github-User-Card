@@ -39,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Githuib Cards</h1>
+        <h1>Github Cards</h1>
        
       
         <div className = 'user'>
